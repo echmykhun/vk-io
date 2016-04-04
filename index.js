@@ -105,8 +105,6 @@ io = function(){
 		return new this.promise((resolve,reject) => {
 			this._api('messages.send',params)
 			.then((id) => {
-				/* Добавляем id в список игнорируемых */
-				this.status.longpoll.skip.push(id);
 				/* Увеличиваем кол-во сообщений */
 				++this.status.outbox;
 
