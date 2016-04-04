@@ -26,8 +26,11 @@ exports.settings = {
  * @returns {object} текущий объект
  */
 exports.setting = function(object){
+	/* Копируем объект */
+	var setting = this.extend({},this.settings);
+
 	/* Наследуем конфиг */
-	this.settings = this.extend({},this.settings,object);
+	this.settings = this.extend(setting,object);
 
 	return this;
 };
